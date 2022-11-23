@@ -278,7 +278,7 @@ def predict():
         return model.predict([x])[0]
     prediction=predict_price(city,sqft,bath,bed)
    
-    return render_template("index.html",prediction_text="House Estimated price(in Lakhs) is {}".format(prediction))
+    return render_template("index.html",prediction_text="According to Bharath, House Estimated price(in Lakhs) is {}".format(prediction))
 
 
 

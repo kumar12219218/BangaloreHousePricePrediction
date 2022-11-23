@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Banglore Home Price Prediction</title>
+  <link rel="stylesheet" type="text/css" href= "{{url_for('static',filename='style.css') }}">
+  <!-- <link rel="stylesheet" type="text/css" href= "{{url_for('static',filename='style3.css')}}"> -->
+
+</head>
+
+<body >
+ <div class="login">
+	<h1 >Banglore Home Price Prediction1</h1>
+
+  <form class="form-inline form1" method="POST" action="{{ url_for('predict') }}">
+    <div class="form-group">
+      <div class="input-group">
+          <span class="input-group-addon">Please select</span>
+              <select name="city" class="select1 selectpicker form-control">
+                {% for o in data %}
+                <option value="{{o}}">{{o}} </option>
+                {% endfor %}
+              </select>
+              <h3>Enter the Area of House</h3>
+    	<input class="one" type="number" name="sqft" id="sqft" placeholder="Enter the Area in sqft" required="required" /><br>
+      <h3>Enter the Number of BathRooms</h3>
+        <input class="two" type="number" name="bath" id="bath" placeholder="Enter number of BathRooms" required="required" /><br>
+        <h3>Enter the Number of BedRooms</h3>
+        <input class="three" type="number" name="bed" id="bed" placeholder="Enter number of BedRooms"  required="required"/><p>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large four">Predict House Estimated Price</button></p>
+
+      </div>
+    </div>
+  </form>
+  <br><br>
+   <h4 class="five">
+   {{ prediction_text }} </h4>
+
+ </div>
+
+
+</body>
+</html>
